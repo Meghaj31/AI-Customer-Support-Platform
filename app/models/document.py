@@ -15,4 +15,4 @@ class Document(Base):
     created_at=Column(DateTime(timezone=True), server_default=func.now())
     
     company=relationship("Company", back_populates="documents")
-    chunks=relationship("DocumentChunk", back_populates="document")
+    chunks = relationship("DocumentChunk", back_populates="document", cascade="all, delete-orphan")

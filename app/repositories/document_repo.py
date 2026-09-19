@@ -5,7 +5,7 @@ from app.models.document import Document
 from app.models.document_chunk import DocumentChunk
 
 async def create_document(db:AsyncSession,company_id,filename:str):
-    document=Document(company_id==company_id,filename==filename)
+    document=Document(company_id=company_id,filename=filename)
     db.add(document)
     await db.commit()
     await db.refresh(document)
